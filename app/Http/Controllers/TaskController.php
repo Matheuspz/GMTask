@@ -15,9 +15,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasksData = Task::with('user')
-            ->latest()
-            ->take(50)
+        $this->authorize('viewAny', Task::class);
+
+        $tasksData = auth()->user()->tasks()
             ->get();
 
         $tasks = $tasksData->groupBy('status');
