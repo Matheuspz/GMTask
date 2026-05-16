@@ -15,20 +15,20 @@
 <nav class="bg-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            <!-- Left side - Logo/Brand { route('home') }} -->
+            <!-- Left side - Logo/Brand  -->
             <div class="flex-shrink-0">
                 <a href="/" class="flex items-center">
                     <span class="text-2xl font-bold text-blue-600">GMTask</span>
                 </a>
             </div>
 
-            <!-- Right side - Auth buttons { auth()->user()->name }} { route('logout') }}-->
+            <!-- Right side - Auth buttons -->
             <div class="flex items-center space-x-4">
                 @auth
-                    <span class="text-gray-700">/</span>
-                    <form method="POST" action="" class="inline">
+                    <span class="text-gray-700">{{ auth()->user()->name }} </span>
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
-                        <button type="submit" class="px-4 py-2 text-gray-700 hover:text-gray-900 transition">
+                        <button type="submit" class="px-4 py-2 text-gray-700 hover:text-gray-900 transition hover:cursor-pointer">
                             Sign Out
                         </button>
                     </form>

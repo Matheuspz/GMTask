@@ -3,16 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $tasksData = Task::with('user')
+            ->latest()
+            ->take(50)
+            ->get();
+
+        $tasks = $tasksData->groupBy('status');
+
+        return view('home', compact('tasks'));
     }
 
     /**
@@ -20,7 +30,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create');
     }
 
     /**
@@ -28,7 +38,15 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated  = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'max:255',
+            'status' => 'required',
+        ]);
+
+        auth()->user()->tasks()->create($validated);
+
+        return redirect()->route('tasks.index')->with('success', 'Task criada com sucesso!');
     }
 
     /**
@@ -44,7 +62,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('tasks.edit', compact('task'));
     }
 
     /**
@@ -52,7 +70,17 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $this->authorize('update', $task);
+
+        $validated  = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'max:255',
+            'status' => 'required',
+        ]);
+
+        $task->update($validated);
+
+        return redirect()->route('tasks.index')->with('success', 'Task criada com sucesso!');
     }
 
     /**
@@ -60,6 +88,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $this->authorize('delete', $task);
+        $task->delete();
+        return redirect()->route('tasks.index')->with('success', 'Task deletada com sucesso!');
     }
 }

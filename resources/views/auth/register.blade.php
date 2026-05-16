@@ -23,8 +23,7 @@
             @endif
 
             <!-- Register Form -->
-            <form method="POST" action="/" class="space-y-6">
-                {{-- {{ //route('register') }} --}}
+            <form method="POST" action="{{ route('register.post') }}" class="space-y-6">
                 @csrf
 
                 <!-- Name Field -->

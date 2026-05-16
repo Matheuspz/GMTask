@@ -22,8 +22,8 @@
                 </div>
             @endif
 
-            <!-- Login Form            { //route('login') }}     -->
-            <form method="POST" action="/" class="space-y-6">
+            <!-- Login Form -->
+            <form method="POST" action="{{ route('login.post') }}" class="space-y-6">
                 @csrf
 
                 <!-- Email Field -->
