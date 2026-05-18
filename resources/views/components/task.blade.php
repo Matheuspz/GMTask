@@ -8,7 +8,7 @@
         @if(auth()->check())
             <div class="flex gap-2 items-center">
                 <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-xs bg-gray-300">
-                    Edit
+                    Editar
                 </a>
                 <form method="POST" action="{{ route('tasks.destroy', $task->id) }}" class="inline-block">
                     @csrf
@@ -17,7 +17,7 @@
                         type="submit"
                         onclick="return confirm('Are you sure you want to delete this task?')"
                         class="btn btn-xs btn-error bg-red-400">
-                        Delete
+                        Deletar
                     </button>
                 </form>
             </div>

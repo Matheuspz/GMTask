@@ -29,15 +29,15 @@
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
                         <button type="submit" class="px-4 py-2 text-gray-700 hover:text-gray-900 transition hover:cursor-pointer">
-                            Sign Out
+                            Log Out
                         </button>
                     </form>
                 @else
                     <a href="{{ route('login') }}" class="px-4 py-2 text-gray-700 hover:text-gray-900 transition font-medium">
-                        Sign In
+                        Entrar
                     </a>
                     <a href="{{ route('register') }}" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium">
-                        Sign Up
+                        Cadastre-se
                     </a>
                 @endauth
             </div>
@@ -52,7 +52,7 @@
 
 <!-- Footer -->
 <footer class="bg-gray-800 text-white text-center py-6 mt-12">
-    <p>&copy; 2026 GMTask. All rights reserved.</p>
+    <p>&copy; 2026 GMTask. Todos os direitos reservados.</p>
 </footer>
 </body>
 </html>

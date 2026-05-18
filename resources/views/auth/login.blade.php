@@ -7,8 +7,8 @@
         <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
             <!-- Logo/Title -->
             <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold text-gray-900">Sign In</h2>
-                <p class="text-gray-600 mt-2">Welcome back to GMTask</p>
+                <h2 class="text-3xl font-bold text-gray-900">Log In</h2>
+                <p class="text-gray-600 mt-2">Bem-vindo de volta ao GMTask</p>
             </div>
 
             <!-- Error Messages -->
@@ -28,7 +28,7 @@
 
                 <!-- Email Field -->
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Endereço de E-Mail</label>
                     <input
                         type="email"
                         id="email"
@@ -37,7 +37,7 @@
                         required
                         autocomplete="email"
                         class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition @error('email') border-red-500 @enderror"
-                        placeholder="Enter your email"
+                        placeholder="Digite seu e-mail"
                     >
                     @error('email')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -46,7 +46,7 @@
 
                 <!-- Password Field -->
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
                     <input
                         type="password"
                         id="password"
@@ -54,7 +54,7 @@
                         required
                         autocomplete="current-password"
                         class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition @error('password') border-red-500 @enderror"
-                        placeholder="Enter your password"
+                        placeholder="Digite sua senha"
                     >
                     @error('password')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -70,7 +70,7 @@
                         {{ old('remember') ? 'checked' : '' }}
                         class="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                     >
-                    <label for="remember" class="ml-2 text-sm text-gray-700">Remember me</label>
+                    <label for="remember" class="ml-2 text-sm text-gray-700">Lembre-se de mim</label>
                 </div>
 
                 <!-- Submit Button -->
@@ -78,7 +78,7 @@
                     type="submit"
                     class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
                 >
-                    Sign In
+                    Entrar
                 </button>
             </form>
 
@@ -86,13 +86,13 @@
             <div class="mt-6 space-y-3 text-center">
                 <p>
                     <a href="/" class="text-sm text-blue-600 hover:text-blue-700">
-                        Forgot your password?
+                        Esqueceu a senha?
                     </a>
                 </p>
                 <p class="text-gray-600 text-sm">
-                    Don't have an account?
+                    Não possui uma conta?
                     <a href="{{ route('register') }}" class="text-blue-600 hover:text-blue-700 font-semibold">
-                        Sign Up
+                        Cadastro
                     </a>
                 </p>
             </div>
